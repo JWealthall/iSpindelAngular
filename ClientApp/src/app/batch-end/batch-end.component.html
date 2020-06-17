@@ -1,0 +1,45 @@
+<h2>End Batch</h2>
+<h3 class="text-danger">Are you sure you want to end this?  No other logs can be added</h3>
+<hr />
+<form [formGroup]="batchForm" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="form-group col-md-6 col-lg-4">
+      <label class="col-form-label">Device Id</label>
+      <input class="form-control" formControlName="deviceId" readonly="readonly" />
+    </div>
+    <div class="form-group col-md-6 col-lg-4">
+      <label class="col-form-label">BatchId Id</label>
+      <input class="form-control" formControlName="batchId" readonly="readonly" />
+    </div>
+    <div class="form-group col-md-6 col-lg-4">
+      <label class="col-form-label">Start Date</label>
+      <input class="form-control" formControlName="startDate" readonly="readonly" />
+    </div>
+    <div class="w-100"></div>
+    <div class="form-group col-md-12 col-lg-8 col-xl-6">
+      <label class="col-form-label">Description</label>
+      <input class="form-control" formControlName="description" readonly="readonly" />
+    </div>
+    <div *ngIf="batch?.endDate !== null" class="form-group col-md-6 col-lg-4">
+      <label class="col-form-label">End Date</label>
+      <input class="form-control" formControlName="endDate" readonly="readonly" />
+    </div>
+    <div class="w-100"></div>
+    <div class="form-group col">
+      <input type="submit" value="End Batch" class="btn btn-primary" [disabled]="!batchForm.valid" />
+    </div>
+    <div class="w-100"></div>
+    <div *ngIf="batch?.statusData?.message" class="form-group col-12">
+      <label class="col-form-label text-danger">{{batch?.statusData?.message}}</label>
+    </div>
+  </div>
+</form>
+<div>
+  <a [routerLink]="['/batch', batchId]">Back to Batch</a>
+</div>
+<!--<p>
+  Value: {{ batchForm.value | json }}
+</p>
+<p>
+  Form Status: {{ batchForm.status }}
+</p>-->

@@ -1,0 +1,35 @@
+<h2>Create Batch</h2>
+<h5>{{device?.name}}</h5>
+<h6>{{device?.description}}</h6>
+<hr />
+<form [formGroup]="batchForm" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="form-group col-md-6 col-lg-4">
+      <label class="col-form-label">Device Id</label>
+      <input class="form-control" formControlName="deviceId" readonly="readonly" />
+    </div>
+    <div class="w-100"></div>
+    <div class="form-group col-md-12 col-lg-8 col-xl-6">
+      <label class="col-form-label">Description</label>
+      <input class="form-control" formControlName="description" />
+      <app-input-error [control]="batchForm.controls.description"></app-input-error>
+    </div>
+    <div class="w-100"></div>
+    <div class="form-group col">
+      <input type="submit" value="Save" class="btn btn-primary" [disabled]="!batchForm.valid" />
+    </div>
+    <div class="w-100"></div>
+    <div *ngIf="batch?.statusData?.message" class="form-group col-12">
+      <label class="col-form-label text-danger">{{batch?.statusData?.message}}</label>
+    </div>
+  </div>
+</form>
+<div>
+  <a [routerLink]="['/device', deviceId]">Back to Device</a>
+</div>
+<!--<p>
+  Value: {{ batchForm.value | json }}
+</p>
+<p>
+  Form Status: {{ batchForm.status }}
+</p>-->

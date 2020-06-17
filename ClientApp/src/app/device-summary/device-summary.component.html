@@ -1,0 +1,31 @@
+<div class="card flex-fill">
+  <div class="card-header">
+    <h5>{{device.name}}</h5>
+    <h6>{{device.description}}</h6>
+  </div>
+  <div class="card-body">
+    <dl class="row">
+      <dt class="col-4">Name</dt>
+      <dd class="col-8">{{device.name}}</dd>
+      <dt class="col-4">Spindel Id</dt>
+      <dd class="col-8">{{device.spindelId}}</dd>
+    </dl>
+    <dl *ngIf="device.date !== null" class="row">
+      <dt class="col-4">Date</dt>
+      <dd class="col-8">{{device.date | date:'medium'}}</dd>
+      <dt class="col-4">Gravity</dt>
+      <dd class="col-8">{{device.gravity | number:'1.3-3'}}</dd>
+      <dt class="col-4">Temp</dt>
+      <dd class="col-8">{{device.temperature | number:'1.1-1'}}&deg;{{device.tempUnits}}</dd>
+      <dt class="col-4">Battery</dt>
+      <dd class="col-8">{{device.battery | number:'1.2-2'}}</dd>
+      <dt class="col-4">RSSI</dt>
+      <dd class="col-8">{{device.rssi}}</dd>
+    </dl>
+  </div>
+  <div class="card-footer text-right">
+    <a *ngIf="device.isDetail" class="btn btn-primary mx-1" [routerLink]="['/device/edit', device.deviceId]">Edit Device</a>
+    <a *ngIf="device.isDetail" class="btn btn-primary mx-1" [routerLink]="['/batch/new', device.deviceId]">New Batch</a>
+    <a *ngIf="!device.isDetail" class="btn btn-primary mx-1" [routerLink]="['/device/', device.deviceId]">Batches</a>
+  </div>
+</div>

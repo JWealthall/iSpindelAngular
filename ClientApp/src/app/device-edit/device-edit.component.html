@@ -1,0 +1,49 @@
+<h2>Edit Device</h2>
+<h5>{{device?.name}}</h5>
+<h6>{{device?.description}}</h6>
+<hr />
+<form [formGroup]="deviceForm" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="form-group col-md-6 col-lg-4">
+      <label class="col-form-label">Device Id</label>
+      <input class="form-control" formControlName="deviceId" readonly="readonly" />
+    </div>
+    <div class="form-group col-md-6 col-lg-4">
+      <label class="col-form-label">Name</label>
+      <input class="form-control" formControlName="name" readonly="readonly" />
+    </div>
+    <div class="form-group col-md-6 col-lg-4">
+      <label class="col-form-label">Spindel Id</label>
+      <input class="form-control" formControlName="spindelId" readonly="readonly" />
+    </div>
+    <div class="w-100"></div>
+    <div class="form-group col-md-12 col-lg-8 col-xl-6">
+      <label class="col-form-label">Description</label>
+      <input class="form-control" formControlName="description" />
+      <app-input-error [control]="deviceForm.controls.description"></app-input-error>
+    </div>
+    <div class="form-group col-md-12 col-lg-8 col-xl-6">
+      <label class="col-form-label">Token</label>
+      <input class="form-control" formControlName="token" />
+      <app-input-error [control]="deviceForm.controls.token"></app-input-error>
+    </div>
+    <div class="w-100"></div>
+    <div class="form-group col">
+      <input type="submit" value="Save" class="btn btn-primary" [disabled]="!deviceForm.valid" />
+    </div>
+    <div class="w-100"></div>
+    <div *ngIf="device?.statusData?.message" class="form-group col-12">
+      <label class="col-form-label text-danger">{{device?.statusData?.message}}</label>
+    </div>
+  </div>
+</form>
+<div>
+  <a [routerLink]="['/device', device.deviceId]">Back to Device</a>
+</div>
+
+<!--<p>
+  Value: {{ deviceForm.value | json }}
+</p>
+<p>
+  Form Status: {{ deviceForm.status }}
+</p>-->

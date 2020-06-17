@@ -1,0 +1,62 @@
+  <h2>Delete Log</h2>
+  <h3 class="text-danger">Are you sure you want to delete this?  Cannot be undone</h3>
+  <hr />
+  <form [formGroup]="logForm" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+      <div class="form-group col-md-6 col-lg-4">
+        <label class="col-form-label">Log Id</label>
+        <input class="form-control" formControlName="logId" readonly="readonly" />
+      </div>
+      <div class="form-group col-md-6 col-lg-4">
+        <label class="col-form-label">Date</label>
+        <input class="form-control" formControlName="date" readonly="readonly" />
+      </div>
+      <div class="form-group col-md-6 col-lg-4">
+        <label class="col-form-label">Angle</label>
+        <input class="form-control" formControlName="angle" readonly="readonly" />
+      </div>
+      <div class="form-group col-md-6 col-lg-4">
+        <label class="col-form-label">Temperature</label>
+        <input class="form-control" formControlName="temperature" readonly="readonly" />
+      </div>
+      <div class="form-group col-md-6 col-lg-4">
+        <label class="col-form-label">Temp Units</label>
+        <input class="form-control" formControlName="tempUnits" readonly="readonly" />
+      </div>
+      <div class="form-group col-md-6 col-lg-4">
+        <label class="col-form-label">Battery</label>
+        <input class="form-control" formControlName="battery" readonly="readonly" />
+      </div>
+      <div class="form-group col-md-6 col-lg-4">
+        <label class="col-form-label">Gravity</label>
+        <input class="form-control" formControlName="gravity" readonly="readonly" />
+      </div>
+      <div class="form-group col-md-6 col-lg-4">
+        <label class="col-form-label">Interval</label>
+        <input class="form-control" formControlName="interval" readonly="readonly" />
+      </div>
+      <div class="form-group col-md-6 col-lg-4">
+        <label class="col-form-label">RSSI</label>
+        <input class="form-control" formControlName="rssi" readonly="readonly" />
+      </div>
+      <div class="form-group col-md-6 col-lg-4">
+        <label class="col-form-label"></label>
+        <input class="form-control" formControlName="deviceId" readonly="readonly" />
+      </div>
+      <div class="form-group col-md-6 col-lg-4">
+        <label class="col-form-label"></label>
+        <input class="form-control" formControlName="batchId" readonly="readonly" />
+      </div>
+      <div class="w-100"></div>
+      <div class="form-group col">
+        <input type="submit" value="Delete Log" class="btn btn-primary" />
+      </div>
+      <div class="w-100"></div>
+      <div *ngIf="log?.statusData?.message" class="form-group col-12">
+        <label class="col-form-label text-danger">{{log?.statusData?.message}}</label>
+      </div>
+    </div>
+  </form>
+  <div>
+    <a [routerLink]="['/batch', batchId]">Back to Device</a>
+  </div>

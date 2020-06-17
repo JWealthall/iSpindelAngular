@@ -1,0 +1,45 @@
+<div class="card flex-fill">
+  <div class="card-header">
+    <h5>{{batch.description}}</h5>
+  </div>
+  <div class="card-body">
+    <dl class="row">
+      <dt class="col-4">Start Date</dt>
+      <dd class="col-8">{{batch.startDate | date:'medium'}}</dd>
+      <dt class="col-4">End Date</dt>
+      <dd class="col-8">{{batch.endDate | date:'medium'}}</dd>
+    </dl>
+    <dl *ngIf="batch.startGravity !== null" class="row">
+      <dt class="col-4">Duration</dt>
+      <dd class="col-8">{{batch.duration | number:'1.3-3'}}</dd>
+    </dl>
+    <dl *ngIf="batch.startGravity !== null" class="row">
+      <dt class="col-4 card-body-header"></dt>
+      <dt class="col-4 card-body-header text-right">Gravity</dt>
+      <dt class="col-4 card-body-header text-right">Temp</dt>
+      <dt class="col-4">Latest</dt>
+      <dd class="col-4 text-right">{{batch.endGravity | number:'1.3-3'}}</dd>
+      <dd class="col-4 text-right">{{batch.endTemperature | number:'1.1-1'}}&deg;{{batch.tempUnits}}</dd>
+      <dt class="col-4">First</dt>
+      <dd class="col-4 text-right">{{batch.startGravity | number:'1.3-3'}}</dd>
+      <dd class="col-4 text-right">{{batch.startTemperature | number:'1.1-1'}}&deg;{{batch.tempUnits}}</dd>
+      <dt class="col-4">Abv &amp; Avg</dt>
+      <dd class="col-4 text-right">{{batch.abv | number:'1.2-2'}}%</dd>
+      <dd class="col-4 text-right">{{batch.avgTemperature | number:'1.1-1'}}&deg;{{batch.tempUnits}}</dd>
+      <dt class="col-4">Low</dt>
+      <dd class="col-4 text-right">{{batch.minGravity | number:'1.3-3'}}</dd>
+      <dd class="col-4 text-right">{{batch.minTemperature | number:'1.1-1'}}&deg;{{batch.tempUnits}}</dd>
+      <dt class="col-4">High</dt>
+      <dd class="col-4 text-right">{{batch.maxGravity | number:'1.3-3'}}</dd>
+      <dd class="col-4 text-right">{{batch.maxTemperature | number:'1.1-1'}}&deg;{{batch.tempUnits}}</dd>
+      <dt class="col-4">Abv H/L</dt>
+      <dd class="col-4 text-right">{{batch.abvMaxMin | number:'1.2-2'}}%</dd>
+      <dd class="col-4"></dd>
+    </dl>
+  </div>
+  <div class="card-footer text-right">
+    <a class="btn btn-primary mx-1" [routerLink]="['/batch/edit', batch.batchId]">Edit</a>
+    <a *ngIf="batch.startGravity !== null" class="btn btn-primary mx-1" [routerLink]="['/batch/chart', batch.batchId]">Chart</a>
+    <a class="btn btn-primary mx-1" [routerLink]="['/batch', batch.batchId]">Details</a>
+  </div>
+</div>
