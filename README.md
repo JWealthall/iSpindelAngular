@@ -23,8 +23,8 @@ For each device you can create a *Batch* which will have a start date of when yo
 Description can be changed for a batch and a batch can be manually ended.
 A batch will automatically be ended if a new batch is created on the same device.
 
- ![Batch Detail Image](wwwroot/images/ExampleBatchDetail.png)
+ ![Batch Detail Image](wwwroot/Images/ExampleBatchDetail.png)
  
- ![Batch Detail Image](wwwroot/images/ExampleBatchChart.png)
+ ![Batch Detail Image](wwwroot/Images/ExampleBatchChart.png)
  
- ![Home Page Image](wwwroot/images/ExampleHomePage.png)
+ ![Home Page Image](wwwroot/Images/ExampleHomePage.png)
