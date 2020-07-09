@@ -7,7 +7,7 @@ It takes input from iSpindel set to use HTTP.
 This was written primarily as an exercise in learning some new languages and frameworks.
 I've always found having a practicle application to write helps with the learning.
 There were certainly some challenges with complex entity framework joins and with adding a chart.
-This is Angular 9, and it part of a series devloping with different UI frameworks.
+This is in Angular 9, and it part of a series devloping with different UI frameworks.
 
 It allows the use of SQLServer/LocalDb or Sqlite.
 The database is created automatically and there are just three basic tables to store the information: Device, Batch and Log.
